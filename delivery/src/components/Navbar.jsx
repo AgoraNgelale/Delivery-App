@@ -7,6 +7,7 @@ import {MdFavorite, MdHelp} from 'react-icons/md';
 
 const Navbar = () => {
   const [nav,setNav] = useState(false)
+  const [delivery,setDelivery] = useState(false)
   return (
     <div className='max-w-[1640] mx-auto flex justify-between items-center p-4'>
         {/*Left Side*/}
@@ -19,8 +20,8 @@ const Navbar = () => {
                 Best <span className='font-bold'>Eats</span>
            </h1>
            <div className='hidden lg:flex items-center bg-gray-200 rounded-full p-1 text-[14px]'>
-                <p className='bg-black p-2 text-white rounded-full'>Delivery</p>
-                <p className='p-2'>Pickup</p>
+                <p className={delivery? 'bg-black p-2 text-white rounded-full cursor-pointer':'p-2 cursor-pointer'} onClick={()=>setDelivery(true)} >Delivery</p>
+                <p className={delivery?'p-2 cursor-pointer' : 'bg-black p-2 text-white rounded-full cursor-pointer'}onClick={()=>setDelivery(false)}>Pickup</p>
            </div>
         </div>
         {/**Search Input */}
